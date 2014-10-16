@@ -44,7 +44,7 @@
 
 ;; Add executable permission
 (add-hook 'after-save-hook
-	  'executable-make-buffer-file-executable-if-script-p)
+          'executable-make-buffer-file-executable-if-script-p)
 
 ;; Line
 (setq kill-whole-line t
@@ -53,7 +53,7 @@
 
 ;; Window
 (setq-default truncate-lines t
-	      truncate-partial-width-windows t)
+              truncate-partial-width-windows t)
 
 ;; Delete trairing while space when after save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -92,8 +92,41 @@
       undo-limit 600000
       undo-strong-limit 900000)
 
-;;;; undo-tree
+;; undo-tree
 (global-undo-tree-mode)
 (define-key undo-tree-map (kbd "C-x u") 'undo-tree-undo)
 (define-key undo-tree-map (kbd "C-/") 'undo-tree-undo)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
+
+;; TAB
+(setq-default indent-tabs-mode nil)
+;;デフォルトのTAB幅を4に
+(setq-default tab-width 4)
+(setq tab-stop-list '(4 8 12 16 20 24 28 32
+                        36 40 44 48 52 56 60 64
+                        68 72 76 80 84 88 92 96
+                        100 104 108 112 116 120))
+
+;; Coloring TAB and other
+(defface my-face-b-1 '((t (:background "SeaGreen"))) nil)
+(defface my-face-b-1 '((t (:background "SeaGreen"))) nil)
+(defface my-face-b-2 '((t (:background "SeaGreen"))) nil)
+(defface my-face-b-2 '((t (:background "SeaGreen"))) nil)
+(defface my-face-u-1 '((t (:foreground "SeaGreen" :underline t))) nil)
+(defvar my-face-b-1 'my-face-b-1)
+(defvar my-face-b-2 'my-face-b-2)
+(defvar my-face-u-1 'my-face-u-1)
+(defadvice font-lock-mode (before my-font-lock-mode ())
+  (font-lock-add-keywords
+   major-mode
+   '(
+     ("　" 0 my-face-b-1 append)
+     ("\t" 0 my-face-b-2 append)
+     ("[ ]+$" 0 my-face-u-1 append)
+     )))
+(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+(ad-activate 'font-lock-mode)
+(add-hook 'find-file-hooks '(lambda ()
+                              (if font-lock-mode
+                                  nil
+                                (font-lock-mode t))))
