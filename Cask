@@ -81,3 +81,5 @@
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 (depends-on "yasnippet-bundle")
+(depends-on "paredit")
+(depends-on "thingopt")
