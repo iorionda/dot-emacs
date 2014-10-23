@@ -83,3 +83,5 @@
 (depends-on "yasnippet-bundle")
 (depends-on "paredit")
 (depends-on "thingopt")
+(depends-on "autopair")
+(depends-on "rainbow-mode")
