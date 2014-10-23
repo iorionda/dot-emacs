@@ -9,6 +9,7 @@ tramp
 .\#*
 history
 ac-comphist.dat
+ac-dict
 
 # Org-mode
 .org-id-locations
@@ -32,3 +33,6 @@ ac-comphist.dat
 
 # Cask
 .cask/
+
+# eww
+url/
