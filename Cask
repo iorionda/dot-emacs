@@ -12,6 +12,7 @@
 (depends-on "ack-and-a-half")
 (depends-on "ag")
 (depends-on "auto-complete")
+(depends-on "fuzzy")
 (depends-on "auto-highlight-symbol")
 (depends-on "bind-key")
 (depends-on "cask")
