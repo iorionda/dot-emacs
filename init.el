@@ -19,4 +19,3 @@
 (custom-set-variables
  '(init-loader-show-log-after-init 'error-only))
  (init-loader-load (concat user-emacs-directory "init_loader"))
-
