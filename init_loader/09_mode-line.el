@@ -1,11 +1,5 @@
 ;; mode-line
-;;; I must require these two elisps before loading powerline...
-;; (require 'elscreen)
-;; (require 'smartrep)
-
-;; (require 'powerline)
-
-;;; modeの名前を自分で再定義
+;;; redefine mode name
 (defvar mode-line-cleaner-alist
   '( ;; For minor-mode, first char is 'space'
     (flymake-mode . " Fm")
