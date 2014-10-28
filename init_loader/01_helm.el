@@ -11,7 +11,8 @@
  '(helm-swoop-pre-input-function 'ignore)
  '(helm-ff-auto-update-initial-value nil)
  '(helm-find-files-doc-header "")
- '(helm-samewindow nil))
+ '(helm-samewindow nil)
+ '(helm-ff-transformer-show-only-basename nil))
 
 (defun my/helm ()
   (interactive)
