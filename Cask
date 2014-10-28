@@ -17,6 +17,7 @@
 (depends-on "cask")
 (depends-on "coffee-mode")
 (depends-on "cucumber-goto-step")
+(depends-on "feature-mode")
 (depends-on "dash")
 (depends-on "dash-at-point")
 (depends-on "direx")
