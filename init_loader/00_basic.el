@@ -3,10 +3,15 @@
 ;; Encoding
 (set-locale-environment nil)
 (set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
 
-(setq default-coding-systems 'utf-8-unix)
-(setq file-name-coding-system 'utf-8-unix)
-(setq locale-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
+
+;; Disable startup screen
+(setq inhibit-startup-screen t)
 
 ;; Coloring
 (global-font-lock-mode t)
@@ -83,7 +88,7 @@
  '(find-file-visit-truename t)
  '(horizontal-scroll-bar nil)
  '(compile-command "")
- '(menu-bar-mode -1))
+ '(menu-bar-mode nil))
 
 (setq-default horizontal-scroll-bar nil)
 
@@ -130,3 +135,19 @@
                               (if font-lock-mode
                                   nil
                                 (font-lock-mode t))))
+
+;; auto-complete
+(global-auto-complete-mode t)
+(defun load-auto-complete ()
+  (require 'auto-complete-config)
+  (ac-config-default)
+  (add-to-list 'ac-dictionary-directories ".emacs.d/.cask/24.3.1/elpa/auto-complete-20140824.1658/dict")
+
+  (setq ac-use-menu-map t)
+  (define-key ac-menu-map "\C-n" ac-next)
+  (define-key ac-menu-map "\C-p" ac-previous))
+
+;; emacs server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
