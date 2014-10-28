@@ -13,16 +13,21 @@
   (add-to-list 'ac-modes mode))
 
 (custom-set-variables
- `(ac-dictionary-directories ,(concat user-emacs-directory "ac-dict"))
+ '(ac-dictionary-directories (concat user-emacs-directory "ac-dict"))
  '(ac-use-fuzzy t)
  '(ac-auto-start nil)
  '(ac-use-menu-map t)
- '(ac-quick-help-delay 1.0))
+ '(ac-auto-show-menu 0.2)
+ '(ac-quick-help-delay 0.2))
+(ac-set-trigger-key "TAB")
+
 
 (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
 (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
 (define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
 (define-key ac-completing-map (kbd "<tab>") 'ac-complete)
+(define-key ac-mode-map (kbd "C-c h") 'ac-last-quick-help)
+(define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
 
 ;; for global minor mode
 (defun my/auto-complete ()
@@ -36,3 +41,7 @@
 
 (dolist (hook '(text-mode-hook markdown-mode-hook))
   (add-hook hook 'ac-ispell-ac-setup))
+
+(set-face-background 'ac-candidate-face "lightgray")
+(set-face-underline 'ac-candidate-face "darkgray")
+(set-face-background 'ac-selection-face "steelblue")
