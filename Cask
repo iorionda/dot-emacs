@@ -14,6 +14,7 @@
 (depends-on "auto-complete")
 (depends-on "fuzzy")
 (depends-on "auto-highlight-symbol")
+(depends-on "highlight-symbol")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "coffee-mode")
