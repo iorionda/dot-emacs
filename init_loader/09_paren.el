@@ -9,9 +9,6 @@
                     :background nil :foreground nil
                     :underline "#ffff00" :weight 'extra-bold)
 ;; smartparen
-(smartparens-global-mode t)
-(sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
-
 (with-eval-after-load "ruby-mode"
   (require 'smartparens-ruby)
   (set-face-attribute 'sp-show-pair-match-face nil
