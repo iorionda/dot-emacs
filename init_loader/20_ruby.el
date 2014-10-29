@@ -19,9 +19,13 @@
  '(ruby-block-highlight-toggle t)
  '(robe-highlight-capf-candidates nil))
 
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-(setq ruby-electric-expand-delimiters-list nil)
+(require 'ruby-end)
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+    (abbrev-mode 1)
+    (electric-pair-mode t)
+    (electric-indent-mode t)
+    (electric-layout-mode t)))
 
 (require 'ruby-block)
 (ruby-block-mode t)
