@@ -68,3 +68,9 @@
 (set-face-background 'highlight-indentation-face "midnight blue")
 (set-face-background 'highlight-indentation-current-column-face "red")
 (setq highlight-indentation-offset 4)
+
+;; highlight-symbol
+(global-set-key [f3] 'highlight-symbol-at-point)
+(global-set-key [(shift f3)] 'highlight-symbol-next)
+(global-set-key [(super f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
