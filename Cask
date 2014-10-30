@@ -88,3 +88,4 @@
 (depends-on "thingopt")
 (depends-on "autopair")
 (depends-on "rainbow-mode")
+(depends-on "haml-mode")
