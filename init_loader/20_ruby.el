@@ -19,71 +19,17 @@
  '(ruby-block-highlight-toggle t)
  '(robe-highlight-capf-candidates nil))
 
-(require 'ruby-end)
 (add-hook 'ruby-mode-hook
   '(lambda ()
     (abbrev-mode 1)
     (electric-pair-mode t)
     (electric-indent-mode t)
-    (electric-layout-mode t)))
-
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
-
-(require 'auto-highlight-symbol-config)
-(require 'highlight-symbol)
-(setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1"))
-
-(global-set-key (kbd "") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-") 'highlight-symbol-remove-all)
-
-(require 'yasnippet)
-(yas/load-directory "~/.emacs.d/snippets")
-(yas-global-mode 1)
-
-;; 既存スニペットを挿入する
-(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
-;; 新規スニペットを作成するバッファを用意する
-(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
-;; 既存スニペットを閲覧・編集する
-(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
-
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
-
-(require 'rubocop)
-(add-hook 'ruby-mode-hook 'rubocop-mode)
-
-(flycheck-define-checker ruby-rubocop
-  "A Ruby syntax and style checker using the RuboCop tool."
-  :command ("rubocop" "--format" "emacs" "--silent"
-            (config-file "--config" flycheck-rubocoprc)
-            source)
-  :error-patterns
-  ((warning line-start
-            (file-name) ":" line ":" column ": " (or "C" "W") ": " (message)
-            line-end)
-   (error line-start
-          (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
-          line-end))
-   :modes (enh-ruby-mode motion-mode))
-
-;; definition for flycheck
-(flycheck-define-checker ruby-rubylint
-  "A Ruby syntax and style checker using the rubylint tool."
-  :command ("ruby-lint" source)
-  :error-patterns
-  ((warning line-start
-            (file-name) ":" line ":" column ": " (or "C" "W") ": " (message)
-            line-end)
-   (error line-start
-          (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
-          line-end))
-  :modes (enh-ruby-mode ruby-mode))
+    (electric-layout-mode t)
+    (ruby-block-mode t)
+    (ruby-block-highlight-toggle t)
+    (rubocop-mode t)))
 
 ;; rspec-mode
-(require 'rspec-mode)
 (custom-set-variables '(rspec-use-rake-flag nil))
 (global-set-key [f10] 'rspec-verify-single)
 (defun my-compilation-hook ()
@@ -98,7 +44,6 @@
 (add-hook 'compilation-mode-hook 'my-compilation-hook)
 
 ;;; robe-mode
-(require 'robe)
 (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
 (autoload 'robe-ac-setup "robe-ac" "robe auto-complete" nil nil)
 (add-hook 'robe-mode-hook 'robe-mode)
