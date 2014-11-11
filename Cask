@@ -88,3 +88,4 @@
 (depends-on "autopair")
 (depends-on "rainbow-mode")
 (depends-on "haml-mode")
+(depends-on "github-browse-file")
