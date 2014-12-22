@@ -1,6 +1,8 @@
+;; disable fullscreen because using tile window manager
+
 ;; Enable fullscreen when using window-system
-(if (eq window-system 'ns)
-    (toggle-frame-fullscreen))
+;; (if (eq window-system 'ns)
+;;     (toggle-frame-fullscreen))
 
 ;; Mac specified setting(Meta key, input method, terminfo)
 ;; switch super(Cmd) to meta(alt)
