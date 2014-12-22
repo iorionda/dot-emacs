@@ -7,12 +7,8 @@
 
 ;; theme
 (depends-on "zenburn-theme")
-
-(depends-on "ac-inf-ruby")
 (depends-on "ack-and-a-half")
 (depends-on "ag")
-(depends-on "auto-complete")
-(depends-on "fuzzy")
 (depends-on "highlight-symbol")
 (depends-on "bind-key")
 (depends-on "cask")
@@ -31,10 +27,6 @@
 (depends-on "flycheck-cask")
 (depends-on "flycheck-tip")
 (depends-on "flymake-coffee")
-(depends-on "flymake-ruby")
-(depends-on "git-gutter")
-(depends-on "gitconfig-mode")
-(depends-on "gitignore-mode")
 (depends-on "google-translate")
 (depends-on "guide-key")
 (depends-on "helm")
@@ -45,9 +37,7 @@
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "js2-mode")
-(depends-on "magit")
 (depends-on "markdown-mode")
-(depends-on "mo-git-blame")
 (depends-on "mode-compile")
 (depends-on "motion-mode")
 (depends-on "multiple-cursors")
@@ -59,18 +49,10 @@
 (depends-on "prodigy")
 (depends-on "projectile")
 (depends-on "rainbow-delimiters")
-(depends-on "rbenv")
 (depends-on "region-bindings-mode")
 (depends-on "request")
 (depends-on "rhtml-mode")
 (depends-on "rinari")
-(depends-on "robe")
-(depends-on "robe")
-(depends-on "rspec-mode")
-(depends-on "rubocop")
-(depends-on "ruby-block")
-(depends-on "ruby-electric")
-(depends-on "ruby-end")
 (depends-on "s")
 (depends-on "smart-compile")
 (depends-on "smartparens")
@@ -88,4 +70,34 @@
 (depends-on "autopair")
 (depends-on "rainbow-mode")
 (depends-on "haml-mode")
+(depends-on "editorconfig")
+
+;; git
+(depends-on "git-gutter")
+(depends-on "gitconfig-mode")
+(depends-on "gitignore-mode")
+(depends-on "magit")
+(depends-on "mo-git-blame")
 (depends-on "github-browse-file")
+
+;; ruby
+(depends-on "ac-inf-ruby")
+(depends-on "flymake-ruby")
+(depends-on "ruby-block")
+(depends-on "ruby-electric")
+(depends-on "ruby-end")
+(depends-on "robe")
+(depends-on "rspec-mode")
+(depends-on "rubocop")
+(depends-on "rbenv")
+
+;; auto-complete
+(depends-on "fuzzy")
+(depends-on "auto-complete")
+(depends-on "popup")
+
+;; json
+(depends-on "json-mode")
+
+;; memo
+(depends-on "open-junk-file")
