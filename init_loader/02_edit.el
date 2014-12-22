@@ -11,3 +11,6 @@
 ;; electrict-mode
 (custom-set-variables
  '(electric-indent-mode nil))
+
+;; editorconfig
+(setq edconf-exec-path "/usr/local/bin/editorconfig")
